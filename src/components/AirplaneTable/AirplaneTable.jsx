@@ -1,19 +1,21 @@
 import { useSelector } from "react-redux";
 
 function AirplaneTable() {
-  const airplanes = useSelector(state => state.airplanes);
+  const airlines = useSelector(state => state.airlines);
 
   return (
     <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Airline Name</th>
+            <th>Number of Planes</th>
           </tr>
         </thead>
         <tbody>
-          {airplanes.map(airplane =>
-            <tr key={airplane.id}>
-              <td>{airplane.name}</td>
+          {airlines.map(airline =>
+            <tr key={airline.id}>
+              <td>{airline.name}</td>
+              <td>{airline.number}</td>
             </tr>
           )}
         </tbody>

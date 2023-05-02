@@ -11,11 +11,15 @@ const id = (function * () {
     }
 })();
 
-const airplanes = (state = [], action) => {
-    if (action.type === 'airplane/add') {
+const airlines = (state = [], action) => {
+    if (action.type === 'airline/add') {
         return [
             ...state,
-            { id: id.next().value, name: action.payload.name }
+            {
+                id: id.next().value,
+                name: action.payload.name,
+                number: action.payload.number
+            }
         ];
     }
 
@@ -23,7 +27,7 @@ const airplanes = (state = [], action) => {
 };
 
 const store = createStore(
-    combineReducers({ airplanes }),
+    combineReducers({ airlines: airlines }),
     applyMiddleware(logger)
 );
 
